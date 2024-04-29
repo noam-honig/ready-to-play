@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { remult } from 'remult'
-import { Task } from './shared/Task'
+import { Task } from './shared/model'
 
 const taskRepo = remult.repo(Task)
 
