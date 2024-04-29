@@ -41,7 +41,7 @@ export default function Auth() {
   if (!signedIn)
     return (
       <>
-        <h1>Todos</h1>
+        <h1>Login</h1>
         <main>
           <form onSubmit={signIn}>
             <input
