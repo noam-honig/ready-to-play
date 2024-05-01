@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@types/sqlite3": "^3.1.11",
     "compression": "^1.7.4",
     "cookie-session": "^2.1.0",
     "dotenv": "^16.4.5",
@@ -20,7 +21,8 @@
     "helmet": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remult": "^0.26.6",
+    "remult": "^0.26.8",
+    "sqlite3": "^5.1.7",
     "vite3-plugin-express": "^0.1.5"
   },
   "devDependencies": {
