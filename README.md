@@ -7,11 +7,4 @@ This codebase is intended to server as a starting point for simple demos which w
 
 ## Seed data
 
-```ts
-await tasks.insert(
-  Array.from({ length: 10 }).map((_, i) => ({
-    title: faker.hacker.phrase(),
-    completed: i % 2 === 0,
-  }))
-)
-```
+Seed is happening in [/src/server/api.ts](/src/server/api.ts).
