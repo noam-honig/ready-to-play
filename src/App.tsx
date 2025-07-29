@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
-import { remult } from 'remult'
+import { repo } from 'remult'
 import { Task } from './shared/model'
-
-const taskRepo = remult.repo(Task)
 
 export default function App() {
   const [tasks, setTasks] = useState<Task[]>([])
 
   useEffect(() => {
-    taskRepo
+    repo(Task)
       .find({
         limit: 20,
         orderBy: { createdAt: 'asc' },
@@ -23,8 +21,23 @@ export default function App() {
         {tasks.map((task) => {
           return (
             <div key={task.id}>
-              <input type="checkbox" checked={task.completed} />
-              {task.title}
+              <input
+                id={task.id}
+                type="checkbox"
+                checked={task.completed}
+                onChange={async () => {
+                  const updatedTask = await repo(Task).save({
+                    ...task,
+                    completed: !task.completed,
+                  })
+                  setTasks(
+                    tasks.map((t) =>
+                      t.id === updatedTask.id ? updatedTask : t
+                    )
+                  )
+                }}
+              />
+              <label htmlFor={task.id}>{task.title}</label>
             </div>
           )
         })}

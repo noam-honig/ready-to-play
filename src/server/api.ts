@@ -19,8 +19,10 @@ export const api = remultExpress({
 
   getUser: (req) => req.session!['user'],
 
-  initApi: async ()=>{
-    if(await repo(Task).count() === 0){ 
+  initApi: async () => {
+    // await repo(Task).deleteMany({ where: { id: { $ne: '-1' } } })
+
+    if ((await repo(Task).count()) === 0) {
       await repo(Task).insert(
         Array.from({ length: 10 }).map((_, i) => ({
           title: faker.hacker.phrase(),
@@ -28,5 +30,5 @@ export const api = remultExpress({
         }))
       )
     }
-  }
+  },
 })
