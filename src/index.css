@@ -32,19 +32,31 @@ main > form {
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  justify-content: space-between;
+  gap: 0.5rem;
+  justify-content: flex-start;
 }
 
-main > div:has(input[type="checkbox"]) {
-  justify-content: inherit;
+main > div:has(input[type='checkbox']) {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Alternative rule for better browser support */
+main > div > input[type='checkbox'] {
+  margin-right: 0.5rem;
 }
 
 input {
   font-family: inherit;
   font-size: 100%;
-  width: 100%;
   border: 0;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'] {
+  width: 100%;
 }
 
 input:checked + input {
@@ -55,10 +67,11 @@ input:placeholder-shown {
   font-style: italic;
 }
 
-input[type="checkbox"] {
-  width: 36px;
-  height: 36px;
+input[type='checkbox'] {
+  width: 1.5rem;
   height: 1.5rem;
+  flex-shrink: 0;
+  margin: 0;
 }
 
 button {
